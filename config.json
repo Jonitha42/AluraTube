@@ -2,6 +2,8 @@
   "name": "Jonathan Pardo",
   "job": "Ux/Ui and Frontend Trainee",
   "github": "Jonitha42",
+  "banner": "https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1189&q=80",
+
   "playlist": {
     "games": [
       {
@@ -130,5 +132,19 @@
         "thumb": "https://img.youtube.com/vi/0JWMVc1CqpA/hqdefault.jpg"
       }
     ]
-  }
+  },
+  "favorites": [
+    {
+      "title": "@omariosouto",
+      "img": "https://avatars.githubusercontent.com/u/13791385?v=4"
+    },
+    {
+      "title": "@AluraLatam",
+      "img": "https://yt3.ggpht.com/OyT_aRtF-ed1Ng-WMOgIKKaJdeYpkey8nR2f0_-0Q3w2KUkArTbRim_OWm7UN4joEYqwEToBzA=s176-c-k-c0x00ffffff-no-rj-mo"
+    },
+    {
+      "title": "@React",
+      "img": "https://yt3.ggpht.com/hzKNwVKenMDmWohH04dzudyJyMUcSox7LM1XKkdlt72pIiRUiOoZjRwic_cvf8VmP8pjxOqgOA=s176-c-k-c0x00ffffff-no-rj"
+    }
+  ]
 }

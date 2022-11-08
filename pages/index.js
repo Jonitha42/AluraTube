@@ -1,9 +1,10 @@
-import config from "../config.json"
 import styled from "styled-components"
+import config from "../config.json"
 import { CSSReset } from "../src/components/CSSReset.js";
 import Menu from "../src/components/Menu";
 import { StyledTimeline } from "../src/components/Timeline";
 import Banner from "../src/components/Banner";
+import Favorites from "../src/components/Favorites";
 
 const HomePage = () => {
   return (
@@ -18,6 +19,7 @@ const HomePage = () => {
         <Banner />
         <Header />
         <Timeline playlist={config.playlist} />
+        <Favorites favorites={config.favorites} />
       </div>
     </>
   );
@@ -96,3 +98,29 @@ const Timeline = (propiedades) => {
     </StyledTimeline>
   )
 }
+
+
+// const Favorites = (propiedades) => {
+//   const favoritesList = propiedades.favorites
+//   console.log(favoritesList)
+//   return (
+//     <StyledFavorites >
+//       <section>
+//         <h2>Favorites</h2>
+//         <div>
+//           {favoritesList.map((favorite) => {
+//             return (
+//               <a>
+//                 <img src={favorite.img} />
+//                 <span>
+//                   {favorite.title}
+//                 </span>
+//               </a>
+//             )
+//           })}
+//         </div>
+//       </section>
+//     </StyledFavorites>
+//   )
+// }
+

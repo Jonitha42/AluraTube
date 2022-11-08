@@ -53,5 +53,6 @@ export const StyledTimeline = styled.div`
       }
     }
   }
+  
 
 `;
