@@ -3,17 +3,19 @@ import styled from "styled-components"
 import { CSSReset } from "../src/components/CSSReset.js";
 import Menu from "../src/components/Menu";
 import { StyledTimeline } from "../src/components/Timeline";
+import Banner from "../src/components/Banner";
 
 const HomePage = () => {
   return (
     <>
       <CSSReset />
+      <Menu />
       <div style={{
         display: 'flex',
         flex: 1,
         flexDirection: 'column',
       }}>
-        <Menu />
+        <Banner />
         <Header />
         <Timeline playlist={config.playlist} />
       </div>
@@ -27,16 +29,21 @@ export default HomePage
 const StyledHeader = styled.div`
   img{
     border-radius: 50%;
-    height: 80px;
-    width: 80px;
+    height: 120px;
+    width: 120px;
   }
   .user-info{
     align-items: center;
     display: flex;
-    gap: 24px;
-    margin-top: 75px;
+    gap: 32px;
+    margin-top: 20px;
     padding: 16px 32px;
     width: 100%;
+  }
+  .user-info-text{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 `
 const Header = () => {
