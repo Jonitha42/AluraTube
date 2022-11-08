@@ -29,6 +29,7 @@ export default HomePage
 
 
 const StyledHeader = styled.div`
+
   img{
     border-radius: 50%;
     height: 130px;
@@ -47,6 +48,8 @@ const StyledHeader = styled.div`
     display: flex;
     flex-direction: column;
     gap: 16px;
+  }& a{
+    color: #333;
   }
   .user-info-title{
     font-size: 1.6rem;
@@ -63,8 +66,10 @@ const Header = () => {
       <section className="user-info">
         <img src={`https://github.com/${config.github}.png`} />
         <div className="user-info-text">
-          <h3 className="user-info-title">{config.name}</h3>
-          <p className="user-info-description">{config.job}</p>
+          <a href="https://www.linkedin.com/in/jonathan-e-pardo/" target="_blank">
+            <h3 className="user-info-title">{config.name}</h3>
+            <p className="user-info-description">{config.job}</p>
+          </a>
         </div>
       </section>
     </StyledHeader>
