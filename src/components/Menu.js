@@ -11,6 +11,7 @@ const StyledMenu = styled.header`
   padding: 0 16px;
   gap: 16px;
   position: fixed;
+  z-index: 999; //LAS CARDS SE SOBREPONIAN AL MENU CUANDO HACIAS HOVER
   width: 100%;
   box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
   .logo {

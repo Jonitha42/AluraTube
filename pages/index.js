@@ -29,8 +29,9 @@ export default HomePage
 const StyledHeader = styled.div`
   img{
     border-radius: 50%;
-    height: 120px;
-    width: 120px;
+    height: 130px;
+    width: 130px;
+    box-shadow: 2px 4px 7px rgba(0,0,0,0.5);
   }
   .user-info{
     align-items: center;
@@ -45,6 +46,13 @@ const StyledHeader = styled.div`
     flex-direction: column;
     gap: 16px;
   }
+  .user-info-title{
+    font-size: 1.6rem;
+  }
+  .user-info-description{
+    font-size: 1rem;
+    color: #999;
+  }
 `
 const Header = () => {
   return (
@@ -53,8 +61,8 @@ const Header = () => {
       <section className="user-info">
         <img src={`https://github.com/${config.github}.png`} />
         <div className="user-info-text">
-          <h3>{config.name}</h3>
-          <p>{config.job}</p>
+          <h3 className="user-info-title">{config.name}</h3>
+          <p className="user-info-description">{config.job}</p>
         </div>
       </section>
     </StyledHeader>
