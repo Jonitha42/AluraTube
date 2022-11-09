@@ -44,8 +44,7 @@ export default function DarkModeSwitch() {
   return (
     <StyledSwitch>
       <input id="darkmode" type="checkbox" onChange={() => {
-        if (contexto.mode === "dark") contexto.setMode("light")
-        if (contexto.mode === "light") contexto.setMode("dark")
+        contexto.toggleMode()
       }} />
       <label
         htmlFor="darkmode"
