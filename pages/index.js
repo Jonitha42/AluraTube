@@ -1,16 +1,18 @@
+import React from "react";
 import styled from "styled-components"
 import config from "../config.json"
-import { CSSReset } from "../src/components/CSSReset.js";
-import Menu from "../src/components/Menu";
+import Menu from "../src/components/Menu/Menu";
 import { StyledTimeline } from "../src/components/Timeline";
 import Banner from "../src/components/Banner";
 import Favorites from "../src/components/Favorites";
 
 const HomePage = () => {
+
+  const [valorDoFiltro, setValorDoFiltro] = React.useState("")
+
   return (
     <>
-      <CSSReset />
-      <Menu />
+      <Menu valorDoFiltro={valorDoFiltro} setValorDoFiltro={setValorDoFiltro} />
       <div style={{
         display: 'flex',
         flex: 1,
@@ -18,7 +20,7 @@ const HomePage = () => {
       }}>
         <Banner />
         <Header />
-        <Timeline playlist={config.playlist} />
+        <Timeline searchValue={valorDoFiltro} playlist={config.playlist} />
         <Favorites favorites={config.favorites} />
       </div>
     </>
@@ -49,7 +51,9 @@ const StyledHeader = styled.div`
     flex-direction: column;
     gap: 16px;
   }& a{
-    color: #333;
+    color: ${({ theme }) =>
+    theme.textColorBase
+  };
   }
   .user-info-title{
     font-size: 1.6rem;
@@ -62,7 +66,7 @@ const StyledHeader = styled.div`
 const Header = () => {
   return (
     <StyledHeader>
-      {/* <img src="banner" /> */}
+
       <section className="user-info">
         <img src={`https://github.com/${config.github}.png`} />
         <div className="user-info-text">
@@ -76,19 +80,23 @@ const Header = () => {
   )
 }
 
-const Timeline = (propiedades) => {
+const Timeline = ({ searchValue, ...propiedades }) => {
   const playlistNames = Object.keys(propiedades.playlist)
   return (
     <StyledTimeline >
       {playlistNames.map((playlistName) => {
         const videos = propiedades.playlist[playlistName]
         return (
-          <section>
+          <section key={playlistName}>
             <h2>{playlistName}</h2>
             <div>
-              {videos.map((video) => {
+              {videos.filter((video) => {
+                const titleNormalized = video.title.toLowerCase();
+                const searchValueNormalized = searchValue.toLowerCase();
+                return titleNormalized.includes(searchValueNormalized)
+              }).map((video) => {
                 return (
-                  <a href={video.url}>
+                  <a key={video.url} href={video.url}>
                     <img src={video.thumb} />
                     <span>
                       {video.title}
@@ -104,28 +112,4 @@ const Timeline = (propiedades) => {
   )
 }
 
-
-// const Favorites = (propiedades) => {
-//   const favoritesList = propiedades.favorites
-//   console.log(favoritesList)
-//   return (
-//     <StyledFavorites >
-//       <section>
-//         <h2>Favorites</h2>
-//         <div>
-//           {favoritesList.map((favorite) => {
-//             return (
-//               <a>
-//                 <img src={favorite.img} />
-//                 <span>
-//                   {favorite.title}
-//                 </span>
-//               </a>
-//             )
-//           })}
-//         </div>
-//       </section>
-//     </StyledFavorites>
-//   )
-// }
 
